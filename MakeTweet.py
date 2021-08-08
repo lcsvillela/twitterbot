@@ -6,6 +6,7 @@ www.github.com/lcsvillela '''
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 from sys import argv
@@ -37,6 +38,7 @@ class MakeTweet():
         self.__driver.find_element_by_xpath('//form/div/div[3]').click()
 
     def make_tweet(self):
+        self.__actions = ActionChains(self.__driver)
         self.__wait.until(EC.presence_of_element_located((By.XPATH, self.__location['button_tweet'])))
         ID = self.get_field_text()
         self.__wait.until(EC.element_to_be_clickable((By.ID, ID)))
@@ -47,10 +49,3 @@ class MakeTweet():
     def get_field_text(self):
         code = self.__driver.page_source.split('"')
         return [x for x in code if 'placeholder-' in x][0]
-
-    def start(self):
-        self.login_twitter()
-        self.make_tweet()
-
-
-MakeTweet(argv[1], argv[2], argv[3])
