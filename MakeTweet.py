@@ -12,7 +12,7 @@ from selenium.webdriver import ActionChains
 from sys import argv
 
 
-class MakeTweet():
+class TwitterBot():
     def __init__(self, username, password,
                  text="Fui automatizado! Confira: www.github.io/publicando-tweet-com-python.html"):
         self.__username = username
