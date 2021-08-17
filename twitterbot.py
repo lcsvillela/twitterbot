@@ -25,7 +25,6 @@ class TwitterBot():
         self.__text = text
         self.__wait = WebDriverWait(self.__driver, 30)
         self.__actions = ActionChains(self.__driver)
-        self.start()
 
     def login_twitter(self):
         self.__driver.get("https://twitter.com/login")
