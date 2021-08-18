@@ -27,7 +27,6 @@ class TwitterBot():
                            'text_field': "//*[contains(text(), 'happening')]",
                            'text_id': "//[@data-testid='tweetTextarea_0_label']"}
         self.__driver = webdriver.Firefox()
-        self.__text = "aaaaaaa" #text
         self.__wait = WebDriverWait(self.__driver, 30)
         self.__actions = ActionChains(self.__driver)
 
